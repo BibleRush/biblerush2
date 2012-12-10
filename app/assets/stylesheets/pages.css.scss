@@ -1,0 +1,20 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#foo {
+  width: grid-width(8);
+  background-color: green;
+}
+
+#bar {
+  width: grid-width(1);
+  background-color: blue;
+  float:left;
+}
+#bar2{
+  width: grid-width(7);
+  background-color: red;
+  margin-left: $gw-gutter;
+  float:left;
+}

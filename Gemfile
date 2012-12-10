@@ -6,9 +6,30 @@ gem 'rails', '3.2.9'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'nokogiri'
+gem 'httparty'
+gem 'haml'
+gem 'devise'
+gem 'bourbon'
+gem 'nokogiri'
+gem 'typhoeus'
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'pry'
+end
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request', '0.2.1'
+end
+
+group :test do
+  gem 'vcr'
+  gem 'webmock'
+  gem 'capybara'
+  gem 'rspec-rails'
 end
 
 # Gems used only for assets and not required
