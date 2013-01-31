@@ -14,6 +14,7 @@ gem 'bourbon'
 gem 'nokogiri'
 gem 'typhoeus'
 gem 'kaminari'
+gem 'acts_as_commentable', '3.0.1'
 
 group :development, :test do
   gem 'sqlite3'

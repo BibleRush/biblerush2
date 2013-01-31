@@ -4,4 +4,6 @@ class PlanDetail < ActiveRecord::Base
   belongs_to :plan
 
   validates :plan_id, :passage_ref, :presence => true
+
+  acts_as_commentable
 end
