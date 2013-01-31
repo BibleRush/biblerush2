@@ -6,4 +6,6 @@ class PlanDetail < ActiveRecord::Base
   validates :plan_id, :passage_ref, :presence => true
 
   acts_as_commentable
+
+  paginates_per 5
 end
