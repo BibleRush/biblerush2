@@ -13,6 +13,7 @@ gem 'devise'
 gem 'bourbon'
 gem 'nokogiri'
 gem 'typhoeus'
+gem 'kaminari'
 
 group :development, :test do
   gem 'sqlite3'
