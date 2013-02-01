@@ -1,0 +1,19 @@
+!!! 5
+%html
+  %head
+    %title Bible Rush
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    %link(href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css')
+  %body
+
+    %p.notice= notice
+    %p.alert= alert
+
+    %ul.hmenu
+      %li= link_to 'home', root_path
+      = render 'devise/menu/registration_items'
+      = render 'devise/menu/login_items'
+
+    = yield
