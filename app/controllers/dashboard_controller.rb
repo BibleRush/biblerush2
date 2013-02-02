@@ -3,5 +3,6 @@
 class DashboardController < ApplicationController
   def home
     @plan_templates = PlanTemplate.all
+    @plans = current_user.plans
   end
 end

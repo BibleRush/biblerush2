@@ -1,0 +1,7 @@
+%h2
+  = @plan.name
+
+- @plan.plan_details.each do |pd|
+  %p
+    = pd.assigned_date
+    = pd.passage_ref

@@ -8,6 +8,8 @@ BibleRush2::Application.routes.draw do
   match 'pages/mockup' => 'pages#mockup', :as => :mockup
   match 'dashboard' => 'dashboard#home', :as => :dashboard_home
 
+  resources :plans
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

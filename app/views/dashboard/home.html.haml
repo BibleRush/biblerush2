@@ -1,3 +1,10 @@
-%h2 Reading Plan Templates
-
-= render @plan_templates
+%table
+  %tr
+    %td(style="vertical-align:top")
+      %h2 Reading Plan Templates
+      = render @plan_templates
+    %td(style="vertical-align:top; width:50%; padding-left: 50px")
+      %h2 Your Existing Plans
+      - @plans.each do |plan|
+        %p
+          = link_to plan.name, plan_path(plan.id)

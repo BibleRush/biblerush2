@@ -1,0 +1,11 @@
+# encoding: UTF-8
+
+class PlansController < ApplicationController
+  def index
+    @plans = current_user.plans
+  end
+
+  def show
+    @plan = Plan.find(params[:id])
+  end
+end
