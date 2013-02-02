@@ -4,9 +4,9 @@ BibleRush2::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-   root :to => 'pages#home'
-   match 'pages/mockup' => 'pages#mockup', :as => :mockup
-   match 'dashboard' => 'dashboard#home', :as => :dashboard_home
+  root :to => 'pages#home'
+  match 'pages/mockup' => 'pages#mockup', :as => :mockup
+  match 'dashboard' => 'dashboard#home', :as => :dashboard_home
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
