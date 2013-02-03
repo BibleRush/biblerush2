@@ -6,8 +6,6 @@
     %td(style="vertical-align:top; width:50%; padding-left: 50px")
       %h2 Your Existing Plans
       - if @plans.present?
-        - @plans.each do |plan|
-          %p
-            = link_to plan.name, plan_path(plan.id)
+        = render @plans
       - else
         No reading plans
