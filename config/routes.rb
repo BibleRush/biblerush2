@@ -7,6 +7,7 @@ BibleRush2::Application.routes.draw do
   root :to => 'pages#home'
   match 'pages/mockup' => 'pages#mockup', :as => :mockup
   match 'dashboard' => 'dashboard#home', :as => :dashboard_home
+  match 'comment' => 'dashboard#comment', :as => :dashboard_comment
 
   resources :plans
 

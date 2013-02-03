@@ -7,3 +7,21 @@
     = pd.passage_ref
     = link_to 'EN', Utils.bgateway_link(pd.passage_ref), :target => '_blank' 
     = link_to 'CH', Utils.bgateway_link(pd.passage_ref, 'CUVMPS'), :target => '_blank' 
+
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    = link_to 'comment', dashboard_comment_path(:id => pd)
+
+    - if pd.comments.present?
+      %br
+      - pd.comments.each do |c|
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        = c.comment
+        %br
