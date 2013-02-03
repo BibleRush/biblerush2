@@ -6,8 +6,10 @@ class PlanTemplateDetail < ActiveRecord::Base
   #validates :plan_template_id, :presence => true
   #validates :passage_ref, :presence => true
 
+  default_scope order('position')
+
   # poor man's auto increment field
   before_create do |record| 
-    record.order = self.class.where(plan_template_id: record.plan_template_id).count + 1
+    record.position = self.class.where(plan_template_id: record.plan_template_id).count + 1
   end
 end
