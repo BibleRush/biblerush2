@@ -5,7 +5,4 @@
       = render @plan_templates
     %td(style="vertical-align:top; width:50%; padding-left: 50px")
       %h2 Your Existing Plans
-      - if @plans.present?
-        = render @plans
-      - else
-        No reading plans
+      = render(@plans) || 'No plans present'
