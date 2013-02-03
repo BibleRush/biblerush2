@@ -3,11 +3,11 @@ class CreatePlanTemplates < ActiveRecord::Migration
     create_table :plan_templates do |t|
       t.string  :name
       t.text    :desc
-      t.integer :order
+      t.integer :position
 
       t.timestamps
     end
 
-    add_index :plan_templates, [:name, :order]
+    add_index :plan_templates, [:name, :position]
   end
 end

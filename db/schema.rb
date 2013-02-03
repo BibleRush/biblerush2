@@ -70,24 +70,24 @@ ActiveRecord::Schema.define(:version => 20130131100533) do
   create_table "plan_template_details", :force => true do |t|
     t.integer  "plan_template_id"
     t.string   "passage_ref"
-    t.integer  "order"
+    t.integer  "position"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
 
   add_index "plan_template_details", ["passage_ref"], :name => "index_plan_template_details_on_passage_ref"
-  add_index "plan_template_details", ["plan_template_id", "order"], :name => "index_plan_template_details_on_plan_template_id_and_order"
   add_index "plan_template_details", ["plan_template_id", "passage_ref"], :name => "index_plan_template_details_on_plan_template_id_and_passage_ref"
+  add_index "plan_template_details", ["plan_template_id", "position"], :name => "index_plan_template_details_on_plan_template_id_and_position"
 
   create_table "plan_templates", :force => true do |t|
     t.string   "name"
     t.text     "desc"
-    t.integer  "order"
+    t.integer  "position"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "plan_templates", ["name", "order"], :name => "index_plan_templates_on_name_and_order"
+  add_index "plan_templates", ["name", "position"], :name => "index_plan_templates_on_name_and_position"
 
   create_table "plans", :force => true do |t|
     t.string   "name"
