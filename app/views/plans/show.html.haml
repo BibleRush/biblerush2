@@ -1,7 +1,7 @@
 %h2
   = @plan.name
 
-- @plan.plan_details.each do |pd|
+- @plan.plan_details.includes(:comments).each do |pd|
   %p
     = pd.assigned_date.strftime('%b %d, %Y')
     = pd.passage_ref
