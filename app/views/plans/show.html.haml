@@ -1,17 +1,17 @@
 %h2
   = @plan.name
 
-- @plan_details.each do |pd|
+- @plan_details.each do |plan_detail|
   %p
-    = render :partial => 'plan_details/plan_detail_header', :locals => { pd: pd }
+    = render :partial => 'plan_details/plan_detail_header', :locals => { plan_detail: plan_detail }
 
     &nbsp;
     &nbsp;
     &nbsp;
     -# performance hack to bypass n+1
-    = link_to pluralize(pd.comments.map { 1 }.sum, 'comment'), plan_detail_path(pd)
+    = link_to pluralize(plan_detail.comments.map { 1 }.sum, 'comment'), plan_detail_path(plan_detail)
     &nbsp;
     &nbsp;
     &nbsp;
-    -#= link_to 'add comment', dashboard_comment_path(:id => pd)
+    -#= link_to 'add comment', dashboard_comment_path(:id => plan_detail)
 
