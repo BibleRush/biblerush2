@@ -8,7 +8,7 @@ class DashboardController < ApplicationController
 
   def comment
     pd = PlanDetail.find(params[:id])
-    pd.comments.create(:comment => "comment made on #{DateTime.now.utc.strftime('%b %e, %l:%M %p')}")
-    redirect_to plan_path(pd.plan)
+    pd.comments.create(comment: params[:comment])
+    redirect_to plan_detail_path(pd)
   end
 end
