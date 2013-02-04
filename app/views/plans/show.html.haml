@@ -1,7 +1,7 @@
 %h2
   = @plan.name
 
-- @plan.plan_details.includes(:comments).each do |pd|
+- @plan_details.each do |pd|
   %p
     = pd.assigned_date.strftime('%b %d, %Y')
     = pd.passage_ref
@@ -11,17 +11,10 @@
     &nbsp;
     &nbsp;
     &nbsp;
+    -# performance hack to bypass n+1
+    = link_to pluralize(pd.comments.map { 1 }.sum, 'comment'), plan_detail_path(pd)
     &nbsp;
     &nbsp;
-    = link_to 'comment', dashboard_comment_path(:id => pd)
+    &nbsp;
+    -#= link_to 'add comment', dashboard_comment_path(:id => pd)
 
-    - if pd.comments.present?
-      %br
-      - pd.comments.each do |c|
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        = c.comment
-        %br
