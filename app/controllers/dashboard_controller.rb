@@ -3,7 +3,7 @@
 class DashboardController < ApplicationController
   def home
     @plan_templates = PlanTemplate.all
-    @plans = current_user.plans.order('created_at DESC')
+    @plans = Plan.order('created_at DESC')
   end
 
   def comment
