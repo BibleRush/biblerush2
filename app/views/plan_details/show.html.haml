@@ -1,7 +1,6 @@
 = link_to 'back', :back
 
 %h2
-  = @plan_detail.passage_ref
-  = @plan_detail.assigned_date
+  = render :partial => 'plan_detail_header', :locals => { plan_detail: @plan_detail }
 
 = render @comments
