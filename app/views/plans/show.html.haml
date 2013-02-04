@@ -3,10 +3,7 @@
 
 - @plan_details.each do |pd|
   %p
-    = pd.assigned_date.strftime('%b %d, %Y')
-    = pd.passage_ref
-    = link_to 'EN', Utils.bgateway_link(pd.passage_ref), :target => '_blank' 
-    = link_to 'CH', Utils.bgateway_link(pd.passage_ref, 'CUVMPS'), :target => '_blank' 
+    = render :partial => 'plan_details/plan_detail_header', :locals => { pd: pd }
 
     &nbsp;
     &nbsp;
