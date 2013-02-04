@@ -8,7 +8,13 @@ class DashboardController < ApplicationController
 
   def comment
     pd = PlanDetail.find(params[:id])
-    comment = pd.comments.create(comment: params[:comment], user_id: current_user.id)
+    comment = pd.comments.new(comment: params[:comment], user_id: current_user.id)
+
+    if comment.save
+      flash[:notice] = 'comment added'
+    else
+      flash[:error] = 'comment could not be added'
+    end
 
     redirect_to plan_detail_path(pd)
   end
