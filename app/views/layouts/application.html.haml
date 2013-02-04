@@ -7,13 +7,16 @@
     = csrf_meta_tags
     %link(href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css')
   %body
+    #flash
+      %p
+        flash
+        %p.notice= notice
+        %p.alert= alert
+    #container
+      .content
+        %ul.hmenu
+          %li= link_to 'Home', root_path
+          = render 'devise/menu/registration_items'
+          = render 'devise/menu/login_items'
 
-    %p.notice= notice
-    %p.alert= alert
-
-    %ul.hmenu
-      %li= link_to 'Home', root_path
-      = render 'devise/menu/registration_items'
-      = render 'devise/menu/login_items'
-
-    = yield
+        = yield

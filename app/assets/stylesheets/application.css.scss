@@ -25,3 +25,28 @@ ul.hmenu li {
   display: inline;  
   margin: 0 .7em 0 0;
 }
+
+#container, #flash {
+  width: grid-width(8);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#flash p {
+  background-color: #d2f2f0;
+  padding-left: $gw-gutter;
+  @include border-top-radius(2px);
+  @include border-bottom-radius(2px);
+}
+
+.content {
+  padding-left: $gw-gutter;
+}
+
+h2 {
+  color: #444;
+}
+
+button {
+  @include button;
+}
