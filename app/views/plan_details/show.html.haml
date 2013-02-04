@@ -1,7 +1,10 @@
-= link_to 'back to reading plan', plan_path(@plan_detail.plan)
-
 %h2
   = render :partial => 'plan_detail_header', :locals => { plan_detail: @plan_detail }
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  = link_to 'plan summary', plan_path(@plan_detail.plan)
+
 
 = form_tag dashboard_comment_path do
   = text_area_tag :comment
