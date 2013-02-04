@@ -13,4 +13,6 @@ class Comment < ActiveRecord::Base
 
   # NOTE: Comments belong to a user
   belongs_to :user
+
+  validates :comment, :length => { :minimum => 2 }
 end
