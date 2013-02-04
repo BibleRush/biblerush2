@@ -8,4 +8,4 @@
   = hidden_field_tag :id, @plan_detail.id
   = button_tag :submit
 
-= render @comments
+= render(@comments) || 'No comments'
