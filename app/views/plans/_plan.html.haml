@@ -1,2 +1,4 @@
 %p
   = link_to plan.name, plan_path(plan)
+  = plan.created_at.strftime('%b %e, %l:%M %p')
+  = link_to 'edit', edit_plan_path(plan)
