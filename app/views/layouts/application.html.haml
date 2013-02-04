@@ -13,10 +13,9 @@
         %p.notice= notice
         %p.alert= alert
     #container
-      .content
-        %ul.hmenu
-          %li= link_to 'Home', root_path
-          = render 'devise/menu/registration_items'
-          = render 'devise/menu/login_items'
+      %ul.hmenu
+        %li= link_to 'Home', root_path
+        = render 'devise/menu/registration_items'
+        = render 'devise/menu/login_items'
 
-        = yield
+      = yield

@@ -1,9 +1,15 @@
 // site wide css
 
-$gw-column: 116px; // Column Width
-$gw-gutter: 8px;   // Gutter Width
+$gw-column: 109px; // Column Width
+$gw-gutter: 16px;   // Gutter Width
+
+@mixin pad-boxes {
+  @include box-sizing(border-box);
+  padding: 0 $gw-gutter 0 $gw-gutter;
+}
 
 body {
   font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
   color: #666;
 }

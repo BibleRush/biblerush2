@@ -1,0 +1,14 @@
+#templates {
+  width: grid-width(4);
+  float: left;
+  background-color: #ccc;
+  margin-left: $gw-gutter;
+  @include pad-boxes;
+}
+
+#user_plans {
+  width: grid-width(4);
+  float: left;
+  background-color: #ddd;
+  @include pad-boxes;
+}
