@@ -8,7 +8,11 @@ class DashboardController < ApplicationController
 
   def comment
     pd = PlanDetail.find(params[:id])
-    pd.comments.create(comment: params[:comment])
+
+    comment = pd.comments.create(comment: params[:comment])
+    comment.user_id = current_user.id
+    comment.save!
+
     redirect_to plan_detail_path(pd)
   end
 end
