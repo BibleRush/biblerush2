@@ -15,13 +15,15 @@
 @import "global";
 @import "dashboard";
 @import "pages";
+@import "plans";
+@import "plan_details";
+@import "comments";
 
 ul.hmenu {
   list-style: none; 
   margin: 0 0 .2em;
   padding: 0;
   width: grid-width(8);
-  @include pad-boxes;
 }
 
 ul.hmenu li {
@@ -45,8 +47,13 @@ ul.hmenu li {
 
 h2 {
   color: #444;
+  margin: 0 0 0 0;
 }
 
 button {
   @include button;
+}
+
+hr {
+  border: solid #ddd 1px;
 }

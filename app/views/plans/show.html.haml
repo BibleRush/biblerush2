@@ -1,17 +1,41 @@
-%h2
-  = @plan.name
+#plan
+  %h2
+    = @plan.name
+    %span(style="float:right;")
+      = button_tag 'Create New Reading Plan'
 
-- @plan_details.each do |plan_detail|
+  - @plan_details.each do |plan_detail|
+    %p
+      = render :partial => 'plan_details/plan_detail_header', :locals => { plan_detail: plan_detail }
+      .comments
+        = render plan_detail.comments
+#members
+  = button_tag 'Invite'
+  %br
+  %br
+  Members
+  %hr
   %p
-    = render :partial => 'plan_details/plan_detail_header', :locals => { plan_detail: plan_detail }
-
-    &nbsp;
-    &nbsp;
-    &nbsp;
-    -# performance hack to bypass n+1
-    = link_to pluralize(plan_detail.comments.map { 1 }.sum, 'comment'), plan_detail_path(plan_detail)
-    &nbsp;
-    &nbsp;
-    &nbsp;
-    -#= link_to 'add comment', dashboard_comment_path(:id => plan_detail)
+    %div(style="width:50px;height:50px;background-color:#78ab78;float:left;")
+    &nbsp; 
+    %span(style="color:black;font-weight:bold") Daniel Yoon
+  %br
+  %p
+    %div(style="width:50px;height:50px;background-color:#c4c4ff;float:left;")
+    &nbsp; Rose Yoon
+  %br
+  %p
+    %div(style="width:50px;height:50px;background-color:pink;float:left;")
+    &nbsp; Sophia Yoon
+  %br
+  %br
+  Pending
+  %hr
+  Esther
+  %br
+  Grace
+  %br
+  Sung
+  %br
+  Chloe
 

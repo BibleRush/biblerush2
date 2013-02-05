@@ -1,0 +1,14 @@
+.date {
+  width: grid_width(2) - ($gw-gutter * 3);
+  float: left;
+}
+
+.passage-ref {
+  width: grid_width(2);
+  float: left;
+  margin-left: $gw-gutter;
+}
+
+.comment-button {
+  float: right;
+}

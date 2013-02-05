@@ -1,4 +1,11 @@
-= plan_detail.assigned_date.strftime('%b %d, %Y')
-= plan_detail.passage_ref
-= link_to 'EN', Utils.bgateway_link(plan_detail.passage_ref), :target => '_blank' 
-= link_to 'CH', Utils.bgateway_link(plan_detail.passage_ref, 'CUVMPS'), :target => '_blank' 
+%h3
+  .date
+    = plan_detail.assigned_date.strftime('%b %d, %Y')
+  .passage-ref
+    = plan_detail.passage_ref
+    &nbsp; &nbsp; 
+    = link_to 'EN', Utils.bgateway_link(plan_detail.passage_ref), :target => '_blank' 
+    = link_to 'CH', Utils.bgateway_link(plan_detail.passage_ref, 'CUVMPS'), :target => '_blank' 
+  .comment-button
+    = link_to 'add comment'
+%br
