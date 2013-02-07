@@ -57,3 +57,12 @@ button {
 hr {
   border: solid #ddd 1px;
 }
+
+a {
+  &:link, &:active, &:visited {
+    color: #5c8ab5;
+  }
+  &:hover {
+    color: blue;
+  }
+}
