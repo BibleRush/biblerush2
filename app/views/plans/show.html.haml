@@ -2,6 +2,8 @@
   %h2
     = @plan.name
     %span(style="float:right;")
+      %span(style="font-size:0.8em")
+        = link_to 'Your Other Reading Plans'
       = button_tag 'Create New Reading Plan'
 
   - @plan_details.each do |plan_detail|
