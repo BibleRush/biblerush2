@@ -15,6 +15,7 @@ gem 'nokogiri'
 gem 'typhoeus'
 gem 'kaminari'
 gem 'acts_as_commentable', '3.0.1'
+gem 'simple_form'
 
 group :development, :test do
   gem 'sqlite3'
