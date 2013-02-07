@@ -10,4 +10,4 @@
   = hidden_field_tag :plan_detail_id, @plan_detail.id
   = button_tag :submit
 
-= render(@comments) || 'No comments'
+= render(@comments, total: @comments.count) || 'No comments'

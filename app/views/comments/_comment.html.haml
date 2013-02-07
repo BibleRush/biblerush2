@@ -7,6 +7,6 @@
     .when
       &nbsp; said #{time_ago_in_words(comment.created_at)} ago
     .counter
-      \##{comment_counter + 1}
+      \##{total - comment_counter}
   .comment_text
     = simple_format comment.comment

@@ -10,7 +10,7 @@
     %p
       = render :partial => 'plan_details/plan_detail_header', :locals => { plan_detail: plan_detail }
       .comments
-        = render plan_detail.comments
+        = render plan_detail.comments, total: plan_detail.comments.count
 #members
   = button_tag 'Invite'
   %br
