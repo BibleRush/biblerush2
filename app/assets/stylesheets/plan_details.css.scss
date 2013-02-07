@@ -12,3 +12,14 @@
 .comment-button {
   float: right;
 }
+
+#new_comment {
+  textarea {
+    height: 170px;
+    width: grid_width(4);
+  }
+
+  label {
+    display: none;
+  }
+}

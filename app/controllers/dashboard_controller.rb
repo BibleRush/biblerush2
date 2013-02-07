@@ -7,8 +7,8 @@ class DashboardController < ApplicationController
   end
 
   def comment
-    pd = PlanDetail.find(params[:id])
-    comment = pd.comments.new(comment: params[:comment], user_id: current_user.id)
+    pd = PlanDetail.find(params[:plan_detail_id])
+    comment = pd.comments.new(comment: params[:comment][:comment], user_id: current_user.id)
 
     if comment.save
       flash[:notice] = 'comment added'
