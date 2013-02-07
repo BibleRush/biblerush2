@@ -9,7 +9,7 @@ class PlanTemplate < ActiveRecord::Base
   default_scope order('position')
 
   # poor man's auto increment field
-  before_create do |record| 
+  before_create do |record|
     record.position = self.class.where(name: record.name).count + 1
   end
 end
