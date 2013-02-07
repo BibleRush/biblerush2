@@ -7,5 +7,5 @@
     = link_to 'EN', Utils.bgateway_link(plan_detail.passage_ref), :target => '_blank' 
     = link_to 'CH', Utils.bgateway_link(plan_detail.passage_ref, 'CUVMPS'), :target => '_blank' 
   .comment-button
-    = link_to 'add comment'
+    = link_to 'add comment', plan_detail_path(plan_detail)
 %br
