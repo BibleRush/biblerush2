@@ -7,7 +7,7 @@ class PlansController < ApplicationController
 
   def show
     @plan = Plan.find(params[:id])
-    @plan_details = @plan.plan_details.includes(:comments)
+    @plan_details = @plan.plan_details.ordered.includes(:comments)
   end
 
   def new
