@@ -1,0 +1,4 @@
+= simple_form_for @comment do |f|
+  = f.input :comment
+  = hidden_field_tag :plan_detail_id, @comment.commentable.id
+  = button_tag :submit

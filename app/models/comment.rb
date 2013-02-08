@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :title, :comment, :user_id
+  attr_accessible :title, :comment, :user_id, :commentable_id
 
   include ActsAsCommentable::Comment
 

@@ -5,9 +5,6 @@
   &nbsp;
   = link_to 'plan summary', plan_path(@plan_detail.plan)
 
-= simple_form_for @new_comment, url: dashboard_comment_path, method: :post do |f|
-  = f.input :comment
-  = hidden_field_tag :plan_detail_id, @plan_detail.id
-  = button_tag :submit
+= render 'comments/form'
 
 = render(@comments, total: @comments.count) || 'No comments'

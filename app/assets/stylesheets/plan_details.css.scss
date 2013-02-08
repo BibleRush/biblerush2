@@ -13,7 +13,7 @@
   float: right;
 }
 
-#new_comment {
+.new_comment, .edit_comment {
   textarea {
     height: 170px;
     width: grid_width(4);
