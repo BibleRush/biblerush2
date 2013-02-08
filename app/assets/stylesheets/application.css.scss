@@ -31,18 +31,23 @@ ul.hmenu li {
   margin: 0 .7em 0 0;
 }
 
-#container, #flash {
+#container, .flash {
   width: grid-width(8);
   margin-left: auto;
   margin-right: auto;
 }
 
-#flash {
-  background-color: #d2f2f0;
+.flash {
+  color: #468847;
+  background-color: #dff0d8;
+  border: 1px solid #d6e9c6;
   width: grid-width(8);
-  @include border-top-radius(2px);
-  @include border-bottom-radius(2px);
-  @include pad-boxes;
+  @include border-top-radius(4px);
+  @include border-bottom-radius(4px);
+  padding: 0.45em;
+  margin-bottom: 5px;
+
+  p { margin: 0 0 0 0; }
 }
 
 h2 {

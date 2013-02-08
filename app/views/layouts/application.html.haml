@@ -7,10 +7,7 @@
     = csrf_meta_tags
     %link(href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css')
   %body
-    #flash
-      %p
-        %p.notice= notice
-        %p.alert= alert
+    = render :partial => 'shared/flash_message'
     #container
       %ul.hmenu
         %li= link_to 'Home', root_path
