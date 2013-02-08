@@ -1,5 +1,7 @@
-= link_to 'back to comments', plan_detail_path(@comment.commentable)
+%h1 Edit Comment
 %h2 original comment
 = render @comment
 
 = render 'form'
+%br
+= link_to 'back to comments', plan_detail_path(@comment.commentable)
