@@ -8,6 +8,13 @@ class DashboardController < ApplicationController
 
   def comment
     pd = PlanDetail.find(params[:plan_detail_id])
+
+    # only logged in users can comment
+    unless user_signed_in?
+      message = "Please <a href='#{new_user_session_path}'>sign in</a> to comment."
+      redirect_to(plan_detail_path(pd), flash: { info: message }) and return
+    end
+
     comment = pd.comments.new(comment: params[:comment][:comment], user_id: current_user.id)
 
     if comment.save
