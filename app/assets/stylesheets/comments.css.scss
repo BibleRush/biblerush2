@@ -32,9 +32,18 @@
     font-size: 0.88em;
     line-height: 1.89em;
   }
-  .counter {
-    color: #5c8ab5;
+  .right-side {
     float: right;
+    width: grid-width(1) - ($gw-gutter * 2);
+
+    .edit {
+      font-size: 1.08em;
+      float: left;
+    }
+    .counter {
+      color: #5c8ab5;
+      float: right;
+    }
   }
 }
 
