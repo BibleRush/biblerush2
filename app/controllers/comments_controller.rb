@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
   def create
     comment = params[:comment][:comment]
     plan_detail = PlanDetail.find(params[:plan_detail_id])
-    
+
     if comment.blank?
       flash[:error] = 'comment cannot be blank'
       redirect_to plan_detail_path(plan_detail) and return
@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
     else
       flash[:error] = 'there was a problem'
     end
- 
+
     redirect_to plan_detail_path(plan_detail)
   end
 
