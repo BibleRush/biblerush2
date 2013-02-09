@@ -16,6 +16,7 @@ gem 'typhoeus'
 gem 'kaminari'
 gem 'acts_as_commentable', '3.0.1'
 gem 'simple_form'
+gem 'diffy'
 
 group :development, :test do
   gem 'sqlite3'
