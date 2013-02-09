@@ -4,7 +4,7 @@ BibleRush2::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  root :to => 'pages#home'
+  root :to => 'pages#landing'
   match 'pages/mockup' => 'pages#mockup', :as => :mockup
   match 'dashboard' => 'dashboard#home', :as => :dashboard_home
   match 'comment' => 'dashboard#comment', :as => :dashboard_comment
