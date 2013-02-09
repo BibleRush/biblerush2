@@ -1,6 +1,10 @@
 %h1 Edit Comment
-%h2 original comment
 = render @comment
+
+- if @comment_diff
+  %br
+  %h3 comment changes
+  = simple_format @comment_diff
 
 = render 'form'
 %br
