@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
 
   before_create :assign_random_avatar
   has_many :plans, :dependent => :destroy
+  validates :avatar,
+    inclusion: { in: EmojiHelper::EMOJI_NAMES.map { |a| ":#{a}:"},
+      message: "emoji %{value} does not appear to exist" }
 
   # only for new users
   def assign_random_avatar
