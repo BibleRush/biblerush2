@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_many :plans, :dependent => :destroy
   validates :avatar,
     inclusion: { in: EmojiHelper::EMOJI_NAMES.map { |a| ":#{a}:"},
-      message: "emoji %{value} does not appear to exist" }
+      message: "emoji %{value} does not appear to exist" }, :on => :update
 
   # only for new users
   def assign_random_avatar
