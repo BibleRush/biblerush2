@@ -9,5 +9,11 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :avatar
   # attr_accessible :title, :body
 
+  before_create :assign_random_avatar
   has_many :plans, :dependent => :destroy
+
+  # only for new users
+  def assign_random_avatar
+    self.avatar = ":#{EmojiHelper::EMOJI_NAMES.sample}:"
+  end
 end
