@@ -5,7 +5,7 @@ module EmojiHelper
   EMOJATAR_SIZE = 40
 
   def emojatar(avatar)
-    if EMOJI_NAMES.include?(avatar.gsub(':',''))
+    if valid_emoji?(avatar)
       emojify(avatar, EMOJATAR_SIZE)
     else
       emojify(DEFAULT_EMOJATAR, EMOJATAR_SIZE)
@@ -14,12 +14,16 @@ module EmojiHelper
 
   def emojify(content, size=20)
     content.gsub(/:([a-z0-9\+\-_]+):/) do |match|
-      if EMOJI_NAMES.include?($1)
+      if valid_emoji?($1)
         '<img alt="' + $1 + "\" height=\"#{size}\" src=\"" + "http://www.emoji-cheat-sheet.com/graphics/emojis/#{$1}.png" + "\" style=\"vertical-align:middle\" width=\"#{size}\" />"
       else
         match
       end
     end.html_safe if content.present?
+  end
+
+  def valid_emoji?(emoji)
+    EMOJI_NAMES.include? emoji.gsub(':','')
   end
 
   EMOJI_NAMES = ["+1", "-1", "100", "1234", "8ball", "a", "ab", "abc", "abcd", "accept", "aerial_tramway", "airplane",
