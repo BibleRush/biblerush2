@@ -1,8 +1,15 @@
 module EmojiHelper
   extend self
 
+  DEFAULT_EMOJATAR = ':smile:'
+  EMOJATAR_SIZE = 40
+
   def emojatar(avatar)
-    emojify(avatar, 40)
+    if EMOJI_NAMES.include?(avatar.gsub(':',''))
+      emojify(avatar, EMOJATAR_SIZE)
+    else
+      emojify(DEFAULT_EMOJATAR, EMOJATAR_SIZE)
+    end
   end
 
   def emojify(content, size=20)
