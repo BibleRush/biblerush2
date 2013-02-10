@@ -14,4 +14,4 @@
         - if defined? total
           \##{total - comment_counter}
   .comment_text
-    = simple_format comment.comment
+    = simple_format EmojiHelper::emojify(comment.comment)
