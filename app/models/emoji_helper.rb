@@ -1,10 +1,14 @@
 module EmojiHelper
   extend self
 
-  def emojify(content)
+  def emojatar(avatar)
+    emojify(avatar, 40)
+  end
+
+  def emojify(content, size=20)
     content.gsub(/:([a-z0-9\+\-_]+):/) do |match|
       if EMOJI_NAMES.include?($1)
-        '<img alt="' + $1 + '" height="20" src="' + "http://www.emoji-cheat-sheet.com/graphics/emojis/#{$1}.png" + '" style="vertical-align:middle" width="20" />'
+        '<img alt="' + $1 + "\" height=\"#{size}\" src=\"" + "http://www.emoji-cheat-sheet.com/graphics/emojis/#{$1}.png" + "\" style=\"vertical-align:middle\" width=\"#{size}\" />"
       else
         match
       end

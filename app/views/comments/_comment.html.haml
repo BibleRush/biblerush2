@@ -1,6 +1,7 @@
 - return if comment.id.nil?
 .comment_wrapper
   .avatar
+    = EmojiHelper::emojatar(comment.user.avatar || ':smile:')
   .comment_header
     .identity
       = comment.user.email

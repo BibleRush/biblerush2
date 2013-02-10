@@ -7,6 +7,9 @@
     <div><%= f.label :email %><br />
     <%= f.email_field :email %></div>
 
+    <div><%= f.label :avatar %> <a href='http://www.emoji-cheat-sheet.com' target='_blank'>emoji-cheat-sheet.com</a> (eg. :smile: :blush: :laughing:)<br />
+    <%= f.text_field :avatar %></div>
+
     <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, :autocomplete => "off" %></div>
 
