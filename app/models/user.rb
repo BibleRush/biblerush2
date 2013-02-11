@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
     inclusion: { in: EmojiHelper::EMOJI_NAMES.map { |a| ":#{a}:"},
       message: "emoji %{value} does not appear to exist" }, :on => :update
 
+  private
+
   # only for new users
   def assign_random_avatar
     self.avatar = ":#{EmojiHelper::EMOJI_NAMES.sample}:"
