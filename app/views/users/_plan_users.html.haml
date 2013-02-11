@@ -1,0 +1,7 @@
+#plan_users
+  - users.each do |u|
+    .plan_user
+      .avatar
+        = EmojiHelper::emojatar(u.avatar, 24)
+      .username
+        = u.username

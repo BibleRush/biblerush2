@@ -18,43 +18,8 @@
   %br
   Members
   %hr
-  %p
-    %div(style="width:50px;height:50px;background-color:#78ab78;float:left;")
-    &nbsp; 
-    %span(style="color:black;font-weight:bold") Daniel Yoon
-  %br
-  %p
-    %div(style="width:50px;height:50px;background-color:#c4c4ff;float:left;")
-    &nbsp; Rose Yoon
-    %br
-    &nbsp;
-    = link_to 'ban'
-    &middot;
-    = link_to 'mute'
-  %br
-  %p
-    %div(style="width:50px;height:50px;background-color:pink;float:left;")
-    &nbsp; Sophia Yoon
-    %br
-    &nbsp;
-    = link_to 'ban'
-    &middot;
-    = link_to 'mute'
-  %br
-  %p
-    %div(style="width:50px;height:50px;background-color:green;float:left;")
-    &nbsp; Bad Boy (banned)
-    %br
-    &nbsp;
-    = link_to 'unban'
-  %br
-  %p
-    %div(style="width:50px;height:50px;background-color:pink;float:left;")
-    &nbsp; Bad Girl (muted)
-    %br
-    &nbsp;
-    = link_to 'unmute'
-  %br
+  = render :partial => 'users/plan_users', :locals => { users: User.all }
+
   %br
   Pending
   %hr
