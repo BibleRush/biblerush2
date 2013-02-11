@@ -4,11 +4,11 @@ module EmojiHelper
   DEFAULT_EMOJATAR = ':smile:'
   EMOJATAR_SIZE = 40
 
-  def emojatar(avatar)
+  def emojatar(avatar, size=EMOJATAR_SIZE)
     if valid_emoji?(avatar)
-      emojify(avatar, EMOJATAR_SIZE)
+      emojify(avatar, size)
     else
-      emojify(DEFAULT_EMOJATAR, EMOJATAR_SIZE)
+      emojify(DEFAULT_EMOJATAR, size)
     end
   end
 
