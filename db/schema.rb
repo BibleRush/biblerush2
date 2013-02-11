@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130210154804) do
+ActiveRecord::Schema.define(:version => 20130211003005) do
 
   create_table "bible_infos", :force => true do |t|
     t.string   "version"
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(:version => 20130210154804) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "avatar"
+    t.string   "username"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
