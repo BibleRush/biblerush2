@@ -16,6 +16,9 @@ class CommentsController < ApplicationController
     if comment.blank?
       flash[:error] = 'comment cannot be blank'
       redirect_to plan_detail_path(plan_detail) and return
+    elsif !user_signed_in?
+      flash[:error] = 'sorry, you must sign in to comment'
+      redirect_to plan_detail_path(plan_detail) and return
     end
 
     @comment = plan_detail.comments.build(comment: comment,
