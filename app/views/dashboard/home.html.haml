@@ -1,6 +1,7 @@
 #user_plans
   %h2 User Reading Plans
-  = render(@plans) || 'No plans present'
+  #plan_list
+    = render(@plans) || 'No plans present'
 
 #templates
   %h2 Reading Plan Templates
