@@ -13,21 +13,13 @@ class CommentsController < ApplicationController
     comment = params[:comment][:comment]
     plan_detail = PlanDetail.find(params[:plan_detail_id])
 
-    if comment.blank?
-      flash[:error] = 'comment cannot be blank'
-      redirect_to plan_detail_path(plan_detail) and return
-    elsif !user_signed_in?
-      flash[:error] = 'sorry, you must sign in to comment'
-      redirect_to plan_detail_path(plan_detail) and return
-    end
-
     @comment = plan_detail.comments.build(comment: comment,
                                           user_id: current_user.id)
 
     if @comment.save
       flash[:notice] = 'comment added'
     else
-      flash[:error] = 'there was a problem'
+      flash[:error] = 'please enter a comment'
     end
 
     redirect_to plan_detail_path(plan_detail)
