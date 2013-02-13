@@ -16,7 +16,7 @@ class PlansController < ApplicationController
                                      start_date: DateTime.now.utc,
                                      user:       current_user)
     if plan.save!
-      render plan
+      redirect_to plan, notice: 'new reading plan created'
     else
       error_msg = "doh! something went wrong and we couldn't create your reading plan"
       redirect_to dashboard_home_path, flash: { error: error_msg }

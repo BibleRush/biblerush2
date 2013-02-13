@@ -2,5 +2,5 @@
   = plan_template.name
   = link_to 'View Plan', plan_template
   &nbsp;
-  = link_to('Create Reading Plan', new_plan_path(:plan_template_id => plan_template), :remote => true, :class => 'create_plan_link')
+  = link_to('Create Reading Plan', new_plan_path(:plan_template_id => plan_template))
 = plan_template.desc
