@@ -36,6 +36,7 @@ group :test do
   gem 'webmock'
   gem 'capybara'
   gem 'rspec-rails'
+  gem 'factory_girl'
 end
 
 # Gems used only for assets and not required
