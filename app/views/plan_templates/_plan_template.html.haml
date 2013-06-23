@@ -1,6 +1,8 @@
 %h3
   = plan_template.name
-  = link_to 'View Plan', plan_template
+  = link_to 'View Schedule', plan_template
   &nbsp;
-  = link_to('Create Reading Plan', new_plan_path(:plan_template_id => plan_template))
+  = link_to('Start This Plan', new_plan_path(:plan_template_id => plan_template))
 = plan_template.desc
+%p
+  = render 'plan_schedule', :plan_template_details => plan_template.plan_template_details
