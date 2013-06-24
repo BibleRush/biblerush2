@@ -25,9 +25,4 @@ class PlansController < ApplicationController
       redirect_to dashboard_home_path, flash: { error: error_msg }
     end
   end
-
-  def start_date
-    @plan_template = PlanTemplate.find(params[:id])
-    @plan_days = PlanTemplateDetail.where(:plan_template_id => @plan_template).count
-  end
 end

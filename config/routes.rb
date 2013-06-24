@@ -9,9 +9,9 @@ BibleRush2::Application.routes.draw do
   match 'dashboard' => 'dashboard#home', :as => :dashboard_home
   match 'pinger' => 'pages#pinger'
 
-  resources :plan_details, :plan_templates, :comments
+  resources :plans, :plan_details, :comments
 
-  resources :plans do
+  resources :plan_templates do
     member do
       get :start_date
     end
