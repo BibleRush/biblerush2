@@ -1,0 +1,13 @@
+%h3
+  Select A Start Date for "#{@plan_template.name}"
+
+#datepicker
+%p
+#start_date
+  Start Date:&nbsp;
+%p
+
+= form_tag(new_plan_path, :method => :get) do
+  = hidden_field_tag 'plan_template_id', @plan_template.id
+  = hidden_field_tag 'start_date'
+  = button_tag('Start Reading')

@@ -2,7 +2,7 @@
   = plan_template.name
   = link_to 'Show Schedule', '#', :class => 'view-schedule'
   &nbsp;
-  = link_to('Start This Plan', new_plan_path(:plan_template_id => plan_template))
+  = link_to('Start This Plan', start_date_plan_path(plan_template))
 = plan_template.desc
 %p
 .plan-schedule

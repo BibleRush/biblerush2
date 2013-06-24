@@ -9,7 +9,13 @@ BibleRush2::Application.routes.draw do
   match 'dashboard' => 'dashboard#home', :as => :dashboard_home
   match 'pinger' => 'pages#pinger'
 
-  resources :plans, :plan_details, :plan_templates, :comments
+  resources :plan_details, :plan_templates, :comments
+
+  resources :plans do
+    member do
+      get :start_date
+    end
+  end
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
