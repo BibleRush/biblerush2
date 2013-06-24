@@ -18,8 +18,7 @@
   %br
   Members
   %hr
-  = render :partial => 'users/plan_users', :locals => { users: User.all }
-
+  = render :partial => 'users/plan_users', :locals => { users: @members }
   %br
   Pending
   %hr

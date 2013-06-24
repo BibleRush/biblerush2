@@ -10,6 +10,7 @@ class PlansController < ApplicationController
   def show
     @plan = Plan.find(params[:id])
     @plan_details = @plan.plan_details.ordered.includes(:comments)
+    @members = Array(@plan.creator) + @plan.users
   end
 
   def new
