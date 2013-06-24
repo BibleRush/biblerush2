@@ -12,7 +12,7 @@ class Plan < ActiveRecord::Base
     start_date = args[:start_date]
     user       = args[:user]
 
-    user.plans.create(name: template.name).tap do |plan|
+    user.owned_plans.create(name: template.name).tap do |plan|
       template.plan_template_details.each do |ptd|
         plan.plan_details.build(passage_ref: ptd.passage_ref, assigned_date: start_date)
 

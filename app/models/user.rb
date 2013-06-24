@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   before_create :assign_random_avatar
   before_destroy :destroy_comments
 
-  has_many :plans, :dependent => :destroy
+  has_many :owned_plans, :class_name => 'Plan', :foreign_key => 'user_id', :dependent => :destroy
 
   validates :avatar,
     inclusion: { in: EmojiHelper::EMOJI_NAMES.map { |a| ":#{a}:"},
