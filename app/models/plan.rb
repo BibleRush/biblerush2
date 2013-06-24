@@ -3,6 +3,8 @@ class Plan < ActiveRecord::Base
 
   belongs_to :creator, :class_name => 'User', :foreign_key => 'user_id'
   has_many :plan_details, :dependent => :destroy
+  has_many :plan_memberships
+  has_many :users, :through => :plan_memberships
 
   validates :name, :presence => true
   validates :user_id, :presence => true

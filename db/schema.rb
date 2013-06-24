@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130211003005) do
+ActiveRecord::Schema.define(:version => 20130624042421) do
 
   create_table "bible_infos", :force => true do |t|
     t.string   "version"
@@ -66,6 +66,15 @@ ActiveRecord::Schema.define(:version => 20130211003005) do
   add_index "plan_details", ["assigned_date"], :name => "index_plan_details_on_assigned_date"
   add_index "plan_details", ["passage_ref"], :name => "index_plan_details_on_passage_ref"
   add_index "plan_details", ["plan_id"], :name => "index_plan_details_on_plan_id"
+
+  create_table "plan_memberships", :force => true do |t|
+    t.integer  "plan_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "plan_memberships", ["plan_id", "user_id"], :name => "index_plan_memberships_on_plan_id_and_user_id", :unique => true
 
   create_table "plan_template_details", :force => true do |t|
     t.integer  "plan_template_id"
