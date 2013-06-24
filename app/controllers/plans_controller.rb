@@ -1,6 +1,8 @@
 # encoding: UTF-8
 
 class PlansController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @plans = current_user.plans
   end
