@@ -1,7 +1,8 @@
 #plan_users
-  - users.each do |u|
+  - users.each_with_index do |u, i|
     .plan_user
       .avatar
         = EmojiHelper::emojatar(u.avatar, 24)
       .username
         = u.username
+        = "(owner)" if i == 0
