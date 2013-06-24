@@ -1,9 +1,10 @@
-%h3
-  = plan_template.name
-  = link_to 'Show Schedule', '#', :class => 'view-schedule'
-  &nbsp;
-  = link_to('Start This Plan', start_date_plan_path(plan_template))
-= plan_template.desc
-%p
-.plan-schedule
-  = render 'plan_schedule', :plan_template_details => plan_template.plan_template_details
+.plan-template
+  %h3
+    = plan_template.name
+    = link_to 'Show Schedule', '#', :class => 'view-schedule'
+    &nbsp;
+    = link_to('Start This Plan', start_date_plan_path(plan_template))
+  = plan_template.desc
+  %p
+  .plan-schedule
+    = render 'plan_schedule', :plan_template_details => plan_template.plan_template_details

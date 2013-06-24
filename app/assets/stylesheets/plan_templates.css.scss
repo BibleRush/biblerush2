@@ -1,0 +1,9 @@
+.plan-template {
+  float: left;
+  @include box-sizing(border-box);
+  width: grid-width(6);
+  background-color: #eee;
+  border: solid #ddd 1px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
