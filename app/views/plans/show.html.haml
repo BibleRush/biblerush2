@@ -4,7 +4,7 @@
     = @plan.name
     %span(style="float:right;")
       %span(style="font-size:0.8em")
-        = link_to 'Your Other Reading Plans'
+        = link_to 'Your Other Reading Plans', dashboard_home_path
       = link_to button_tag('Start A New Reading Plan'), plan_templates_path
 
   - @plan_details.each do |plan_detail|
