@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :avatar
 
+  after_create :add_to_invited_plans
   before_create :assign_random_avatar
   before_destroy :destroy_comments
 
@@ -35,5 +36,12 @@ class User < ActiveRecord::Base
   # plans, and only owned plans are associated with users
   def destroy_comments
     Comment.where(user_id: id).destroy_all
+  end
+
+  def add_to_invited_plans
+    Invite.where(:email => self.email, :accepted => false).each do |invite|
+      PlanMembership.create(:user_id => self.id, :plan_id => invite.plan_id)
+      invite.update_attribute(:accepted, true)
+    end
   end
 end

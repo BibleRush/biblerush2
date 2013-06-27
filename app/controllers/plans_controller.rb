@@ -11,6 +11,7 @@ class PlansController < ApplicationController
     @plan = Plan.find(params[:id])
     @plan_details = @plan.plan_details.ordered.includes(:comments)
     @members = Array(@plan.creator) + @plan.users
+    @pending_invites = Invite.where(:plan_id => @plan.id, :accepted => false)
   end
 
   def new

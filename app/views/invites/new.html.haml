@@ -1,0 +1,27 @@
+%h3 Invite
+
+%p
+  Enter an email and click "Invite" to add someone to "#{@plan.name}".
+  %br
+  The invited user will be able to add comments to this reading plan.
+
+%p
+  = simple_form_for [@plan, @invite] do |f|
+    = f.input :email
+    %br
+    = button_tag 'Invite'
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    = link_to 'back to reading plan', @plan
+
+- if @pending_invites.present?
+  %hr
+  %p
+    %b Pending Invites
+  %p
+    = render @pending_invites
+
+- if @accepted_invites.present?
+  %p
+    %b Accepted Invites
+  %p
+    = render @accepted_invites

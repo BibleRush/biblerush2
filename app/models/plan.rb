@@ -5,6 +5,7 @@ class Plan < ActiveRecord::Base
   has_many :plan_details, :dependent => :destroy
   has_many :plan_memberships
   has_many :users, :through => :plan_memberships
+  has_many :invites, :dependent => :destroy
 
   validates :name, :presence => true
   validates :user_id, :presence => true

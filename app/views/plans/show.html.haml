@@ -13,7 +13,7 @@
       .comments
         = render plan_detail.comments, total: plan_detail.comments.count
 #members
-  = button_tag 'Invite'
+  = link_to button_tag('Invite'), new_plan_invite_path(@plan)
   %br
   %br
   Members
@@ -22,10 +22,4 @@
   %br
   Pending
   %hr
-  Esther
-  %br
-  Grace
-  %br
-  Sung
-  %br
-  Chloe
+  = render @pending_invites

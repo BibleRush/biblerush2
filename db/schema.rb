@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130624042421) do
+ActiveRecord::Schema.define(:version => 20130627111912) do
 
   create_table "bible_infos", :force => true do |t|
     t.string   "version"
@@ -36,6 +36,18 @@ ActiveRecord::Schema.define(:version => 20130624042421) do
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
   add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "invites", :force => true do |t|
+    t.string   "email",      :default => "",    :null => false
+    t.string   "avatar",     :default => "",    :null => false
+    t.integer  "invited_by", :default => 0,     :null => false
+    t.integer  "plan_id"
+    t.boolean  "accepted",   :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "invites", ["plan_id", "email"], :name => "index_invites_on_plan_id_and_email"
 
   create_table "passages", :force => true do |t|
     t.string   "version"
