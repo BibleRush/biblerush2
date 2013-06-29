@@ -8,4 +8,8 @@
 
 = render 'comments/form'
 
+#emoji_list(style="margin:20px 0 20px 0;")
+  - @emoji_list.each do |emoji|
+    = EmojiHelper.linkify(emoji)
+
 = render(@comments, total: @comments.count) || 'No comments'

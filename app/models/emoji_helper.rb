@@ -26,6 +26,11 @@ module EmojiHelper
     EMOJI_NAMES.include? emoji.gsub(':','')
   end
 
+  def linkify(emoji, size=20)
+    emoji = emoji.chomp(':').reverse.chomp(':').reverse
+    "<img alt='#{emoji}' height='#{size}' width='#{size}' src='http://www.emoji-cheat-sheet.com/graphics/emojis/#{emoji}.png' style='vertical-align:middle'>".html_safe
+  end
+
   EMOJI_NAMES = ["+1", "-1", "100", "1234", "8ball", "a", "ab", "abc", "abcd", "accept", "aerial_tramway", "airplane",
     "alarm_clock", "alien", "ambulance", "anchor", "angel", "anger", "angry", "anguished", "ant", "apple",
     "aquarius", "aries", "arrow_backward", "arrow_double_down", "arrow_double_up", "arrow_down", "arrow_down_small",
