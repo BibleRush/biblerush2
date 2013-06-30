@@ -5,9 +5,10 @@
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = javascript_include_tag 'http://code.jquery.com/ui/1.10.3/jquery-ui.js'
+    - if Rails.env.production?
+      %link(href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css')
     = stylesheet_link_tag 'http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css'
     = csrf_meta_tags
-    %link(href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css')
   %body
     = render :partial => 'shared/flash_message'
     #container
