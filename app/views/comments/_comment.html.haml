@@ -9,8 +9,9 @@
       &nbsp; said #{time_ago_in_words(comment.created_at)} ago
     .right-side
       .edit
-        - if current_user == comment.user && params[:action] != 'edit'
-          = link_to 'edit', edit_comment_path(comment)
+        -# TODO: temporarily disable editing until fixed
+        -#- if current_user == comment.user && params[:action] != 'edit'
+          -#= link_to 'edit', edit_comment_path(comment)
       .counter
         - if defined? total
           \##{total - comment_counter}
