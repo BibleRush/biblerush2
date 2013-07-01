@@ -13,16 +13,10 @@ class CommentsController < ApplicationController
     comment = params[:comment][:comment]
     plan_detail = PlanDetail.find(params[:plan_detail_id])
 
-    @comment = plan_detail.comments.build(comment: comment,
-                                          user_id: current_user.id)
+    @comment = plan_detail.comments.build(comment: comment, user_id: current_user.id)
+    @comment.save
 
-    if @comment.save
-      flash[:notice] = 'comment added'
-    else
-      flash[:error] = 'please enter a comment'
-    end
-
-    redirect_to plan_detail_path(plan_detail)
+    render @comment
   end
 
   def update

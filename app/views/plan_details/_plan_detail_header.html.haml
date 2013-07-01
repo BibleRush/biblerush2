@@ -3,6 +3,6 @@
     = plan_detail.assigned_date.strftime('%b %d, %Y')
   .passage-ref
     = link_to plan_detail.passage_ref, Utils.bgateway_link(plan_detail.passage_ref), :target => '_blank'
-  .comment-button
-    = link_to 'add comment', plan_detail_path(plan_detail)
+  .add-comment
+    = link_to 'add comment', '#'
 %br

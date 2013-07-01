@@ -10,6 +10,11 @@
   - @plan_details.each do |plan_detail|
     %p
       = render :partial => 'plan_details/plan_detail_header', :locals => { plan_detail: plan_detail }
+      .comment-form
+        = render 'comments/form', :comment => plan_detail.comments.new
+        #emoji_list(style="margin:20px 0 20px 0;")
+          - @emoji_list.each do |emoji|
+            = EmojiHelper.linkify(emoji)
       .comments
         = render plan_detail.comments, total: plan_detail.comments.count
 #members
