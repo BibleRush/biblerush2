@@ -8,15 +8,16 @@
       = link_to button_tag('Start A New Reading Plan'), plan_templates_path
 
   - @plan_details.each do |plan_detail|
-    %p
+    %div{class: 'plan_details', data: {plan_detail_id: plan_detail.id} }
       = render :partial => 'plan_details/plan_detail_header', :locals => { plan_detail: plan_detail }
-      .comment-form
-        = render 'comments/form', :comment => plan_detail.comments.new
-        #emoji_list(style="margin:20px 0 20px 0;")
-          - @emoji_list.each do |emoji|
-            = EmojiHelper.linkify(emoji)
+      .comment-form-location
       .comments
         = render plan_detail.comments, total: plan_detail.comments.count
+  #comment-form
+    = render 'comments/form', :comment => Comment.new
+    #emoji_list(style="margin:20px 0 20px 0;")
+      - @emoji_list.each do |emoji|
+        = EmojiHelper.linkify(emoji)
 #members
   = link_to button_tag('Invite'), new_plan_invite_path(@plan)
   %br

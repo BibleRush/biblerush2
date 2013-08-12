@@ -18,11 +18,21 @@ $(function(){
    plans show page
    *****************************************************************/
   // initially hide comment form
-  $('.comment-form').hide();
+  $('#comment-form').hide();
 
   // toggle display of comment form
   $('.add-comment').click(function(){
-    $(this).parent().next().next().fadeToggle();
+    var form = $('#comment-form');
+    form.hide();
+    // width needed to prevent weird display issue with slideDown()
+    form.width(form.parent().width());
+    $(this).parent().parent().find('.comment-form-location').append(form);
+    form.slideDown();
+
+    // set plan_detail_id
+    var plan_detail_id = $(this).parent().parent().data('plan_detail_id');
+    $('#plan_detail_id').val(plan_detail_id);
+
     return false;
   });
 
@@ -30,7 +40,7 @@ $(function(){
   $("form").bind('ajax:success', function(data, status, xhr){
     // fade in newly added comment
     var comment = $(status).hide();
-    $(this).parent().next().prepend(comment)
+    $(this).parent().parent().next().prepend(comment)
     $(comment).slideDown('slow');
 
     // reset textarea

@@ -1,6 +1,6 @@
 = simple_form_for comment, :remote => true do |f|
   = f.input :comment
-  = hidden_field_tag :plan_detail_id, comment.commentable.id
+  = hidden_field_tag :plan_detail_id
   = button_tag :submit, :disable_with => 'submit'
   &nbsp; &nbsp; &nbsp; &nbsp;
   = link_to 'http://www.emoji-cheat-sheet.com', 'http://www.emoji-cheat-sheet.com', target: '_blank'
