@@ -20,6 +20,7 @@ gem 'simple_form'
 gem 'diffy'
 #gem 'newrelic_rpm'
 gem 'cancan'
+gem 'activeadmin'
 
 group :development, :test do
   gem 'sqlite3'
