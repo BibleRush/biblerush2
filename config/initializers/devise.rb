@@ -6,6 +6,8 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
   config.mailer_sender = "noreply@biblerush.com"
 
+  config.secret_key = 'fc3c5ca0eb00748d7af5c046ebfb500c392a5d5763c8cfc1e0fe7f139cd1d06f0fe6c8c1f2d41c9523a42
+dd4e55093719ce2a381b3887f3d869a4666d34f4fed'
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
 
