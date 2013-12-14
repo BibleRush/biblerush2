@@ -16,3 +16,4 @@
 .rbenv-version
 /tags
 /todo
+/config/database.yml
