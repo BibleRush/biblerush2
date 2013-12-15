@@ -66,5 +66,7 @@ BibleRush2::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # for Devise
-  config.action_mailer.default_url_options = { :host => 'biblerush.com' }
+  config.action_mailer.default_url_options = { :host => '106.186.27.112' }
+  config.action_mailer.smtp_settings = { :openssl_verify_mode => false }
+  config.action_mailer.smtp_settings = { :enable_starttls_auto => false }
 end
