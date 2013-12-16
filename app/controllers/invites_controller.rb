@@ -14,6 +14,7 @@ class InvitesController < ApplicationController
 
     if @invite.save
       create_successful
+      send_invite_email(@invite)
     else
       create_failed
     end
@@ -24,6 +25,10 @@ class InvitesController < ApplicationController
   def create_successful
     notice = "Invited #{@invite.email} to '#{@plan.name}' reading plan."
     redirect_to new_plan_invite_path(@plan), :notice => notice
+  end
+
+  def send_invite_email(invite)
+    UserMailer.invite_to_plan_email(invite).deliver
   end
 
   def create_failed
