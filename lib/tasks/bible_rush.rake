@@ -13,6 +13,41 @@ namespace :rush do
     puts 'finished'
   end
 
+  desc 'create NL reading plan'
+  task :create_nl_plan => :environment do
+    # Matthew 1-28, Psalm 65
+    # John 1-21
+    # Galatians 1-6
+    # Ephesians 1-6
+    # Philippians 1-4
+    plan_name = 'New Life Reading Plan'
+    PlanTemplate.where(name: plan_name).destroy_all
+    template = PlanTemplate.create(name: plan_name, desc: 'New Life reading plan')
+
+    (1..65).each do |chapter|
+      case chapter
+      when 1..28
+        template.plan_template_details.build(passage_ref: "Matthew #{chapter}, Psalm #{chapter}")
+        puts template.plan_template_details.last.passage_ref
+      when 29..49
+        template.plan_template_details.build(passage_ref: "John #{chapter - 28}, Psalm #{chapter}")
+        puts template.plan_template_details.last.passage_ref
+      when 50..55
+        template.plan_template_details.build(passage_ref: "Galatians #{chapter - 28 - 21}, Psalm #{chapter}")
+        puts template.plan_template_details.last.passage_ref
+      when 56..61
+        template.plan_template_details.build(passage_ref: "Ephesians #{chapter - 28 - 21 - 6}, Psalm #{chapter}")
+        puts template.plan_template_details.last.passage_ref
+      when 62..65
+        template.plan_template_details.build(passage_ref: "Philippians #{chapter - 28 - 21 - 6 - 6}, Psalm #{chapter}")
+        puts template.plan_template_details.last.passage_ref
+      end
+    end
+
+    puts "saving template: #{template.inspect}"
+    template.save!
+  end
+
   task :create_esther_template => :environment do
     PlanTemplate.where(name: 'Esther One A Day').destroy_all
     template = PlanTemplate.create(name: 'Esther One A Day', desc: 'Read one chapter of Esther a day. Part of our alpha test. If you see this it means you are special :)')
