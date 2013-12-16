@@ -30,7 +30,7 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'meta_request', '0.2.1'
+  gem 'meta_request', '>= 0.2.5'
   gem 'quiet_assets'
 end
 
