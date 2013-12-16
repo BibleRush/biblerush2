@@ -30,7 +30,7 @@ $(function(){
     form.slideDown();
 
     // set plan_detail_id
-    var plan_detail_id = $(this).parent().parent().data('plan_detail_id');
+    var plan_detail_id = $(this).parent().parent().data('plan-detail-id');
     $('#plan_detail_id').val(plan_detail_id);
 
     return false;
