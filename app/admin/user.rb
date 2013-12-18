@@ -1,6 +1,9 @@
 ActiveAdmin.register User do
   index do
     column :email
+    column :avatar do |user|
+      EmojiHelper.emojatar(user.avatar)
+    end
     column :current_sign_in_at
     column :last_sign_in_at
     column :sign_in_count
