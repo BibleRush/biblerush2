@@ -1,5 +1,5 @@
 class Invite < ActiveRecord::Base
-  attr_accessible :plan_id, :email, :accepted
+  attr_accessible :plan_id, :email, :accepted, :invited_by
 
   belongs_to :plan
   validates :email, :presence => true
