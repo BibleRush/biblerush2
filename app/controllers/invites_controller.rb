@@ -4,8 +4,8 @@ class InvitesController < ApplicationController
   def new
     @invite = @plan.invites.build
     @invite.invited_by = current_user.id
-    @pending_invites = Invite.where(:plan_id => @plan.id, :accepted => false).order('created_at DESC')
-    @accepted_invites = Invite.where(:plan_id => @plan.id, :accepted => true).order('updated_at DESC')
+    @pending_invites = Invite.pending_invites_for(@plan.id)
+    @accepted_invites = Invite.accepted_invites_for(@plan.id)
   end
 
   def create

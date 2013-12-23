@@ -6,6 +6,14 @@ class Invite < ActiveRecord::Base
   validate :not_inviting_self, :not_already_invited
   before_create :assign_random_avatar, :add_member
 
+  def self.pending_invites_for(id)
+    where(:plan_id => id, :accepted => false).order('created_at DESC')
+  end
+
+  def self.accepted_invites_for(id)
+    where(:plan_id => id, :accepted => true).order('updated_at DESC')
+  end
+
   private
 
   def not_inviting_self
