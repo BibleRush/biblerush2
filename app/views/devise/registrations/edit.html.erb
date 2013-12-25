@@ -15,11 +15,19 @@
     <div><%= f.label :avatar %> <a href='http://www.emoji-cheat-sheet.com' target='_blank'>emoji-cheat-sheet.com</a> (eg. :smile: :blush: :laughing:)<br />
     <%= f.text_field :avatar %></div>
 
-    <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, :autocomplete => "off" %></div>
+    <div>
+      <p>
+      <a id='change-password-link' href='#'>Click to Change Password</a>
+      </p>
+    </div>
 
-    <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %></div>
+    <div id="change-password-div" style="margin:10px 0px 10px 0px; padding:10px 0px 10px 0px; background-color:#eee; display:none; ">
+      <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+      <%= f.password_field :password, :autocomplete => "off" %></div>
+
+      <div><%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation %></div>
+    </div>
 
     <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password %></div>
@@ -29,3 +37,14 @@
 </p>
 
 <%= link_to "Back", :back %>
+
+<% # TODO: make unobtrusive %>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var changePasswordDiv = $('#change-password-div');
+
+    $('#change-password-link').click(function() {
+      changePasswordDiv.slideToggle();
+    });
+  });
+</script>
