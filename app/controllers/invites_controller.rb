@@ -33,7 +33,13 @@ class InvitesController < ApplicationController
   end
 
   def create_failed
-    flash.now.alert = 'failure'
+    # TODO: DRY this up
+    flash.now.alert = "#{@invite.email} is either already invited or already a member."
+    @invite = @plan.invites.build
+    @invite.invited_by = current_user.id
+    @pending_invites = Invite.pending_invites_for(@plan.id)
+    @accepted_invites = Invite.accepted_invites_for(@plan.id)
+
     render :action => 'new'
   end
 
