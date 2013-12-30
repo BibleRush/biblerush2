@@ -16,6 +16,14 @@
     <%= f.text_field :avatar %></div>
 
     <div>
+      <br />
+      <%= f.label :opt_in do %>
+        Receive notification emails
+        <%= f.check_box :opt_in %>
+      <% end %>
+    </div>
+
+    <div>
       <p>
       <a id='change-password-link' href='#'>Click to Change Password</a>
       </p>
