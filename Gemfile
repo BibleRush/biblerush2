@@ -21,6 +21,7 @@ gem 'diffy'
 #gem 'newrelic_rpm'
 gem 'cancan'
 gem 'activeadmin'
+gem 'whenever', :require => false
 
 group :development, :test do
   gem 'sqlite3'
