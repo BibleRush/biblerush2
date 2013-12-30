@@ -1,5 +1,9 @@
 require "bundler/capistrano"
 
+# user whenever gem for cron jobs
+set :whenever_command, "bundle exec whenever"
+require "whenever/capistrano"
+
 server "106.186.27.112:16888", :web, :app, :db, primary: true
 
 set :application, "biblerush2"
