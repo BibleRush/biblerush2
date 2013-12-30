@@ -16,11 +16,13 @@ class Invite < ActiveRecord::Base
 
   private
 
+  # TODO: reverse boolean logic
   def not_inviting_self
     plan = Plan.find(plan_id)
     errors.add(:invite, "can't invite yourself") if plan.creator.email == email
   end
 
+  # TODO: reverse boolean logic
   def not_already_invited
     user = User.where(:email => email).first
 
