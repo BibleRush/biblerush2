@@ -1,4 +1,9 @@
 namespace :rush do
+  desc 'test emails'
+  task :plan_reminder_emails => :environment do
+    #UserMailer.invite_to_plan_email(invite).deliver
+  end
+
   desc 'setup bible infos table'
   task :bible_infos_niv => :environment do
     BibleInfo.where(version: 'NIV').destroy_all
