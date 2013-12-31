@@ -3,11 +3,11 @@
   %head
     %meta(content='text/html; charset=UTF-8' http-equiv='Content-Type')
   %body
-    %h1
-      You're invited to BibleRush.com!
     %p
-      Use your email to sign up:
-      = @invite.email
+      #{@invite.plan.creator.username} (#{@invite.plan.creator.email}) has invited you
+      to join their Bible reading plan at BibleRush.com.
+    %p
+      Use your email (#{@invite.email}) to sign up:
     %p
       To register, just follow this link:
       = @url
