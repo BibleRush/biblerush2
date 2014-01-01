@@ -14,7 +14,8 @@
     #container
       %ul.hmenu
         %li= link_to 'Home', root_path
-        = render 'devise/menu/registration_items'
+        - if current_user
+          = render 'devise/menu/registration_items'
         = render 'devise/menu/login_items'
 
       = yield
