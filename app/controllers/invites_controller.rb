@@ -29,7 +29,7 @@ class InvitesController < ApplicationController
   end
 
   def send_invite_email(invite)
-    UserMailer.invite_to_plan_email(invite).deliver
+    UserMailer.delay.invite_to_plan_email(invite)
   end
 
   def create_failed
