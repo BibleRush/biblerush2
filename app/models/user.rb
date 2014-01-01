@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
 
   def add_to_invited_plans
     Invite.where(:email => self.email, :accepted => false).each do |invite|
-      PlanMembership.create(:user_id => self.id, :plan_id => invite.plan_id)
+      PlanMembership.find_or_create_by_user_id_and_plan_id(:user_id => self.id, :plan_id => invite.plan_id)
       invite.update_attribute(:accepted, true)
     end
   end
