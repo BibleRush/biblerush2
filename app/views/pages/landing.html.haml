@@ -1,1 +1,48 @@
-%h1 Welcome to BibleRush
+%p
+
+#intro(style="float:left;width:300px;margin-right:40px;")
+  BibleRush.com is an online Bible reading club.
+  %p
+    Sign up to
+    %strong create
+    reading plans and
+    %strong discuss
+    with your friends.
+
+:ruby
+  def resource_name
+    :user
+  end
+
+  def resource
+    @resource ||= User.new
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
+
+#signup(style="float:left")
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+    = devise_error_messages!
+
+    %div
+      = f.label :username
+      %br
+      = f.text_field :username
+    %div
+      = f.label :email
+      %br
+      = f.email_field :email
+
+    %div
+      = f.label :password
+      %br
+      = f.password_field :password
+
+    %div
+      = f.label :password_confirmation
+      %br
+      = f.password_field :password_confirmation
+
+    = f.submit "Sign up"
