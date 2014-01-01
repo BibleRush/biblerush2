@@ -14,7 +14,10 @@ class CommentsController < ApplicationController
     plan_detail = PlanDetail.find(params[:plan_detail_id])
 
     @comment = plan_detail.comments.build(comment: comment, user_id: current_user.id)
-    @comment.save
+
+    if @comment.save
+      send_comment_notifications(@comment)
+    end
 
     render @comment
   end
@@ -31,5 +34,25 @@ class CommentsController < ApplicationController
     end
 
     redirect_to edit_comment_path(comment)
+  end
+
+  protected
+
+  # email each member of the plan who has notifications turned on
+  def send_comment_notifications(comment)
+    plan_detail = comment.commentable
+    plan        = plan_detail.plan
+    users       = plan.members.select { |u| u.opt_in == true }
+    # exclude user making the comment
+    users       = users - Array(comment.user)
+
+    users.each do |user|
+      logger.info "[soph] sending notification email to #{user.email} about comment.id #{comment.id}"
+      UserMailer.delay.new_comment_notification(to_user:      user,
+                                                comment_text: comment.comment,
+                                                commenter:    comment.user,
+                                                passage_ref:  plan_detail.passage_ref,
+                                                plan_url:     plan_path(plan))
+    end
   end
 end

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+%html
+  %head
+    %meta(content='text/html; charset=UTF-8' http-equiv='Content-Type')
+  %body
+    %p
+      #{@commenter.username} commented on #{@passage_ref}
+    %p
+      \===================================
+      = @comment_text
+      \===================================
+    %p
+      View on BibleRush to respond #{@plan_url}
