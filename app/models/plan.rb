@@ -23,4 +23,8 @@ class Plan < ActiveRecord::Base
       end
     end
   end
+
+  def members
+    users + Array(creator)
+  end
 end
