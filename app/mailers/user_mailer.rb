@@ -10,6 +10,8 @@ class UserMailer < ActionMailer::Base
   end
 
   def new_comment_notification(params)
+    return unless FEATURES.fetch('comment_notifications')
+
     @comment_text = params.fetch(:comment_text)
     @to_user      = params.fetch(:to_user)
     @commenter    = params.fetch(:commenter)
