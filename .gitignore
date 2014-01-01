@@ -17,3 +17,5 @@
 /tags
 /todo
 /config/database.yml
+
+dump.rdb
