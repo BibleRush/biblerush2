@@ -30,8 +30,12 @@ ul.hmenu {
 }
 
 ul.hmenu li {
-  display: inline;  
+  display: inline;
   margin: 0 .7em 0 0;
+
+  a {
+    vertical-align: top;
+  }
 }
 
 #container, .flash {

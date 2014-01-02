@@ -13,7 +13,9 @@
     = render :partial => 'shared/flash_message'
     #container
       %ul.hmenu
-        %li= link_to 'Home', root_path
+        %li
+          -#keep <a> and <img> together to prevent weird spacing
+          <a href="#{root_path}" style="padding-right:87px"><img src="#{image_path('logo.png')}" width="240" /></a>
         - if current_user
           = render 'devise/menu/registration_items'
         = render 'devise/menu/login_items'
