@@ -12,7 +12,7 @@
       = render :partial => 'plan_details/plan_detail_header', :locals => { plan_detail: plan_detail }
       .comment-form-location
       .comments(style="clear:both;")
-        = render plan_detail.comments, total: plan_detail.comments.count
+        = render plan_detail.comments, total: plan_detail.comments_count
   #comment-form
     = render 'comments/form', :comment => Comment.new
     #emoji_list(style="margin:20px 0 20px 0;")

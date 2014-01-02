@@ -1,5 +1,7 @@
 class Comment < ActiveRecord::Base
   attr_accessible :title, :comment, :user_id, :commentable_id
+  belongs_to :commentable, :polymorphic => true, :counter_cache => :comments_count
+  attr_readonly :comments_count
 
   include ActsAsCommentable::Comment
 

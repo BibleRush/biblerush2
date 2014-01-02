@@ -4,6 +4,13 @@ require 'open-uri'
 module OneOff
   extend self
 
+  def update_plan_details_counts
+    PlanDetail.all.each do |pd|
+      pd.comments_count = Comment.where(commentable_id: pd).count
+      pd.save!
+    end
+  end
+
   module Bst
     extend self
 

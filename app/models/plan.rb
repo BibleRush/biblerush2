@@ -24,6 +24,10 @@ class Plan < ActiveRecord::Base
     end
   end
 
+  def comments_count
+    plan_details.sum { |pd| pd.comments_count }
+  end
+
   def members
     users + Array(creator)
   end

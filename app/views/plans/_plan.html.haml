@@ -4,7 +4,7 @@
   by
   = plan.creator.email
 
-  = pluralize(plan.plan_details.map { |a| a.comments.count }.sum, 'comments')
+  = pluralize(plan.comments_count, 'comments')
 
   - if plan.creator == current_user
     = link_to 'edit', edit_plan_path(plan)
