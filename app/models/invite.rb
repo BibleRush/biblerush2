@@ -33,7 +33,7 @@ class Invite < ActiveRecord::Base
   end
 
   def assign_random_avatar
-    self.avatar = ":#{EmojiHelper::EMOJI_NAMES.sample}:"
+    self.avatar = EmojiHelper.random_emoji_avatar
   end
 
   def add_member

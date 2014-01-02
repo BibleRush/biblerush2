@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
   # only for new users
   def assign_random_avatar
-    self.avatar = ":#{EmojiHelper::EMOJI_NAMES.sample}:"
+    self.avatar = EmojiHelper.random_emoji_avatar
   end
 
   # using comment plugin so need to delete comments manually
