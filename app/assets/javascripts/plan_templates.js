@@ -9,5 +9,7 @@ $(document).ready(function(){
     } else {
       $(this).text("Show Schedule");
     };
+
+    return false;
   });
 });
