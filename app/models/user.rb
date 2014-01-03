@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
       message: "emoji %{value} does not appear to exist" }, :on => :update
   # min is small since chinese names are also expected
   validates :username, :length => { :in => 1..30 }
+  validates :username, :uniqueness => true
   validates :username, :exclusion => { :in => %w[god], :message => 'is not allowed' }
 
   private
