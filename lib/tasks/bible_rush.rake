@@ -1,4 +1,22 @@
 namespace :rush do
+
+  task :create_sl_2014_plan => :environment do
+    PlanTemplate.where(name: 'Southland 2014 Fasting').destroy_all
+    template = PlanTemplate.create(name: 'Southland 2014 Fasting', desc: "Bible reading schedule during Southland's 2014 beginning of year fast.")
+
+    6.times do |chapter|
+      template.plan_template_details.build(passage_ref: "Ephesians #{chapter + 1}")
+    end
+
+    2.times do |chapter|
+      template.plan_template_details.build(passage_ref: "Philippians #{chapter + 1}")
+    end
+
+    template.plan_template_details.build(passage_ref: "Philippians 3-4")
+
+    template.save!
+  end
+
   desc 'setup bible infos table'
   task :bible_infos_niv => :environment do
     BibleInfo.where(version: 'NIV').destroy_all
