@@ -1,7 +1,7 @@
 class UserMailer < ActionMailer::Base
   BIBLERUSH_URL = 'http://biblerush.com'
 
-  default from: 'noreply@biblerush.com'
+  default from: 'BibleRush <noreply@biblerush.com>'
 
   def invite_to_plan_email(invite)
     @invite = invite
