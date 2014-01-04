@@ -21,6 +21,8 @@ class Plan < ActiveRecord::Base
 
         start_date = start_date + 1.day
       end
+
+      assign_owner_as_member(plan)
     end
   end
 
@@ -29,6 +31,12 @@ class Plan < ActiveRecord::Base
   end
 
   def members
-    users + Array(creator)
+    users
+  end
+
+  protected
+
+  def self.assign_owner_as_member(plan)
+    plan.plan_memberships.build(user_id: plan.creator.id, plan_id: plan.id)
   end
 end

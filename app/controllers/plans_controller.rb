@@ -10,7 +10,7 @@ class PlansController < ApplicationController
   def show
     @plan = Plan.find(params[:id])
     @plan_details = @plan.plan_details.ordered.includes(:comments)
-    @members = Array(@plan.creator) + @plan.users
+    @members = @plan.members
     @pending_invites = Invite.where(:plan_id => @plan.id, :accepted => false)
     @emoji_list = %w(bowtie smile laughing grin wink sleeping worried confused
                     sweat sob scream angry smiling_imp innocent yellow_heart
