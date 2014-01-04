@@ -4,6 +4,15 @@ require 'open-uri'
 module OneOff
   extend self
 
+  def update_plan_memberships
+    Plan.all.each do |plan|
+      if PlanMembership.where(plan_id: plan.id, user_id: plan.creator.id).blank?
+        puts "plan #{plan.id} is missing user #{plan.creator.id} from plan_memberships"
+        PlanMembership.create!(plan_id: plan.id, user_id: plan.creator.id)
+      end
+    end
+  end
+
   def update_plan_details_counts
     PlanDetail.all.each do |pd|
       pd.comments_count = Comment.where(commentable_id: pd).count
