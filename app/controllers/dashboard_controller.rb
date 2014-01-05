@@ -2,7 +2,7 @@
 
 class DashboardController < ApplicationController
   def home
-    @owned_plans = current_user.owned_plans
-    @plans = current_user.plans
+    @plans = Plan.current_plans_for(current_user)
+    @finished_plans = Plan.finished_plans_for(current_user)
   end
 end

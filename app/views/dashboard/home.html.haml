@@ -1,12 +1,13 @@
 #user_plans
-  %h2 My Reading Plans
-  #owned_plan_list
-    = render(@owned_plans) || 'You did not create any plans yet'
-  %br
-  %br
-  %h2 Reading Plan Membership
+  %h2 Current Reading Plans
   #plan_list
-    = render(@plans) || 'You are not a member of any reading plans yet'
+    = render(@plans) || "You don't have any plans yet"
+
+  - if @finished_plans.present?
+    %br
+    %h2 Finished Reading Plans
+    #plan_list
+      = render(@finished_plans)
 
 #templates
   = link_to button_tag('Start a Reading Plan'), plan_templates_path

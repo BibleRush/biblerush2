@@ -35,6 +35,15 @@ class Plan < ActiveRecord::Base
     users
   end
 
+  def self.current_plans_for(user)
+    user.plans.group(:id).joins(:plan_details)
+        .where('plan_details.assigned_date > ?', Date.today).order('id desc')
+  end
+
+  def self.finished_plans_for(user)
+    user.plans.order('id desc') - self.current_plans_for(user)
+  end
+
   protected
 
   def self.assign_owner_as_member(plan)
