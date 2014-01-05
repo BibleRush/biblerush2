@@ -33,7 +33,7 @@ module EmojiHelper
 
   def random_emoji_avatar
     bad_emoji = %w[smoking goberserk hurtrealbad rage1 rage2 rage3 rage4 trollface feelsgood finnadie goberserk
-                   godmode hurtrealbad suspect -1 broken_heart hankey poop shit skull]
+                   godmode hurtrealbad suspect -1 broken_heart hankey poop shit skull euro game_die]
     clean_emoji = EMOJI_NAMES - bad_emoji
     ":#{clean_emoji.sample}:"
   end
