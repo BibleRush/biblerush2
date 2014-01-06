@@ -1,6 +1,7 @@
 class PlanTemplatesController < ApplicationController
   def index
     @plan_templates = PlanTemplate.active
+    @current_user_plan_templates = current_user && current_user.plan_templates
   end
 
   def show

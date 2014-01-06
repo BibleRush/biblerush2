@@ -1,1 +1,7 @@
 = render @plan_templates
+
+- if @current_user_plan_templates
+  %div(style="clear:left")
+    %h3 Plans you created
+
+    = render @current_user_plan_templates
