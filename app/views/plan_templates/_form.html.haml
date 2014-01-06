@@ -1,0 +1,9 @@
+= simple_form_for plan_template do |f|
+  = hidden_field_tag 'plan_template[user_id]', plan_template.user_id
+  = f.input :name
+  = f.input :desc, :label => 'Description'
+  %div(class='input')
+    %label(class='control-label') Passages<br />(one per line)
+    = text_area_tag :passage_refs, params[:passage_refs]
+  %br
+  = button_tag :submit, :class => 'submit'

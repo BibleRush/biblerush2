@@ -7,3 +7,15 @@
   padding: 10px;
   margin-bottom: 20px;
 }
+
+.simple_form {
+  #plan_template_desc, #passage_refs {
+    width: 270px;
+  }
+  #plan_template_desc {
+    height: 30px;
+  }
+  #passage_refs {
+    height: 220px;
+  }
+}

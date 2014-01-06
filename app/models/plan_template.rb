@@ -1,5 +1,5 @@
 class PlanTemplate < ActiveRecord::Base
-  attr_accessible :name, :desc, :passage_ref
+  attr_accessible :name, :desc, :passage_ref, :user_id
 
   has_many :plan_template_details, :dependent => :destroy
   belongs_to :creator, :class_name => 'User', :foreign_key => 'user_id'
