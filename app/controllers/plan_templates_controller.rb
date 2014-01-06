@@ -1,6 +1,6 @@
 class PlanTemplatesController < ApplicationController
   def index
-    @plan_templates = PlanTemplate.all
+    @plan_templates = PlanTemplate.active
   end
 
   def show

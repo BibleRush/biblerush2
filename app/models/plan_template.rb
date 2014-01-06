@@ -13,4 +13,8 @@ class PlanTemplate < ActiveRecord::Base
   before_create do |record|
     record.position = self.class.where(name: record.name).count + 1
   end
+
+  def self.active
+    where(:public => true)
+  end
 end
