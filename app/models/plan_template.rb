@@ -2,9 +2,10 @@ class PlanTemplate < ActiveRecord::Base
   attr_accessible :name, :desc, :passage_ref
 
   has_many :plan_template_details, :dependent => :destroy
+  belongs_to :creator, :class_name => 'User', :foreign_key => 'user_id'
 
-  #validates :name, :presence => true, :uniqueness => true
-  #validates :passage_ref, :presence => true
+  validates :user_id, :presence => true
+  validates :name, :presence => true
 
   default_scope order('position')
 
