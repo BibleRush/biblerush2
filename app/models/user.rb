@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :owned_plans, :class_name => 'Plan', :foreign_key => 'user_id', :dependent => :destroy
   has_many :plan_memberships
   has_many :plans, :through => :plan_memberships
+  has_many :plan_templates
 
   validates :avatar,
     inclusion: { in: EmojiHelper::EMOJI_NAMES.map { |a| ":#{a}:"},
