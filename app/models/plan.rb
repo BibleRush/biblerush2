@@ -32,7 +32,7 @@ class Plan < ActiveRecord::Base
   end
 
   def members
-    users
+    users.order('id')
   end
 
   def self.current_plans_for(user)
