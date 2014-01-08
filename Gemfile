@@ -25,7 +25,6 @@ gem 'whenever', :require => false
 gem 'sidekiq'
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'pry'
 end
 
