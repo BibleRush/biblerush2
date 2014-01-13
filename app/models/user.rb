@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :plan_memberships
   has_many :plans, :through => :plan_memberships
   has_many :plan_templates
+  has_many :comments
 
   validates :avatar,
     inclusion: { in: EmojiHelper::EMOJI_NAMES.map { |a| ":#{a}:"},
