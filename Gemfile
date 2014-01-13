@@ -33,6 +33,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request', '>= 0.2.5'
   gem 'quiet_assets'
+  gem 'rails-erd'
 end
 
 group :test do

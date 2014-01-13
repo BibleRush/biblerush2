@@ -72,6 +72,7 @@ GEM
       xpath (~> 2.0)
     celluloid (0.15.2)
       timers (~> 1.1.0)
+    choice (0.1.6)
     coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -179,6 +180,11 @@ GEM
       activesupport (= 3.2.16)
       bundler (~> 1.0)
       railties (= 3.2.16)
+    rails-erd (1.1.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      choice (~> 0.1.6)
+      ruby-graphviz (~> 1.0.4)
     railties (3.2.16)
       actionpack (= 3.2.16)
       activesupport (= 3.2.16)
@@ -206,6 +212,7 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
+    ruby-graphviz (1.0.9)
     safe_yaml (0.9.7)
     sass (3.2.12)
     sass-rails (3.2.6)
@@ -283,6 +290,7 @@ DEPENDENCIES
   pry
   quiet_assets
   rails (= 3.2.16)
+  rails-erd
   rspec-rails
   sass-rails (~> 3.2.3)
   sidekiq
