@@ -1,5 +1,6 @@
 ActiveAdmin.register User do
   index do
+    column :id
     column :email
     column :avatar do |user|
       EmojiHelper.emojatar(user.avatar)
